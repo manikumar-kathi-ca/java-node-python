@@ -1,0 +1,671 @@
+# Java vs Node.js vs Python — Complete Side-by-Side Reference
+
+> 💡 **How to practice:** Type each snippet by hand. One concept per day across all 3 languages.
+
+---
+
+## 1. Variables & Types
+
+| Concept | Java | Node.js | Python |
+|---|---|---|---|
+| Declare | `int x = 10;` | `let x = 10;` | `x = 10` |
+| Constant | `final int X = 10;` | `const X = 10;` | `X = 10` (convention) |
+| Null | `null` | `null` / `undefined` | `None` |
+| Type Check | `x instanceof Integer` | `typeof x === "number"` | `isinstance(x, int)` |
+| Type Cast | `(int) 3.9` | `parseInt("42")` | `int("42")` |
+
+### 🧪 Practice
+```java
+// Java
+int age = 25;
+double pi = 3.14;
+boolean flag = true;
+System.out.println(age instanceof Integer); // true
+```
+```javascript
+// Node.js
+let age = 25;
+const pi = 3.14;
+let flag = true;
+console.log(typeof age === "number"); // true
+```
+```python
+# Python
+age = 25
+pi = 3.14
+flag = True
+print(isinstance(age, int))  # True
+```
+
+---
+
+## 2. Strings
+
+| Concept | Java | Node.js | Python |
+|---|---|---|---|
+| Interpolation | `String.format("Hi %s", name)` | `` `Hi ${name}` `` | `f"Hi {name}"` |
+| Length | `str.length()` | `str.length` | `len(str)` |
+| Substring | `str.substring(0, 4)` | `str.slice(0, 4)` | `str[0:4]` |
+| Split | `str.split(",")` | `str.split(",")` | `str.split(",")` |
+| Join | `String.join(",", list)` | `arr.join(",")` | `",".join(list)` |
+| Trim | `str.trim()` | `str.trim()` | `str.strip()` |
+| Upper/Lower | `str.toUpperCase()` | `str.toUpperCase()` | `str.upper()` |
+| Contains | `str.contains("x")` | `str.includes("x")` | `"x" in str` |
+| Replace | `str.replace("a","b")` | `str.replace("a","b")` | `str.replace("a","b")` |
+| Multiline | `""" text block """` (Java 15+) | `` `backtick` `` | `"""triple"""` |
+
+### 🧪 Practice
+```java
+// Java
+String name = "Mani";
+int age = 30;
+String msg = String.format("I am %s, %d yrs old", name, age);
+String s = "Software";
+System.out.println(s.substring(0, 4)); // "Soft"
+String csv = "Mani,Kumar,Kathi";
+String[] parts = csv.split(",");
+System.out.println(String.join(" | ", parts)); // Mani | Kumar | Kathi
+```
+```javascript
+// Node.js
+const name = "Mani", age = 30;
+const msg = `I am ${name}, ${age} yrs old`;
+let s = "Software";
+console.log(s.slice(0, 4)); // "Soft"
+let csv = "Mani,Kumar,Kathi";
+let parts = csv.split(",");
+console.log(parts.join(" | ")); // Mani | Kumar | Kathi
+```
+```python
+# Python
+name, age = "Mani", 30
+msg = f"I am {name}, {age} yrs old"
+s = "Software"
+print(s[0:4])  # "Soft"
+csv = "Mani,Kumar,Kathi"
+parts = csv.split(",")
+print(" | ".join(parts))  # Mani | Kumar | Kathi
+```
+
+---
+
+## 3. Control Flow
+
+| Concept | Java | Node.js | Python |
+|---|---|---|---|
+| If/Else | `if (x > 0) {}` | `if (x > 0) {}` | `if x > 0:` |
+| Ternary | `x > 0 ? "pos" : "neg"` | `x > 0 ? "pos" : "neg"` | `"pos" if x > 0 else "neg"` |
+| Switch | `switch(x) { case 1: }` | `switch(x) { case 1: }` | `match x: case 1:` (3.10+) |
+
+### 🧪 Practice
+```java
+// Java
+int score = 85;
+if (score >= 90) {
+    System.out.println("A");
+} else if (score >= 80) {
+    System.out.println("B");
+} else {
+    System.out.println("C");
+}
+
+String day = "Mon";
+switch (day) {
+    case "Mon": System.out.println("Start"); break;
+    case "Fri": System.out.println("End");   break;
+    default:    System.out.println("Mid");
+}
+```
+```javascript
+// Node.js
+let score = 85;
+if (score >= 90) console.log("A");
+else if (score >= 80) console.log("B");
+else console.log("C");
+
+let day = "Mon";
+switch (day) {
+    case "Mon": console.log("Start"); break;
+    case "Fri": console.log("End");   break;
+    default:    console.log("Mid");
+}
+```
+```python
+# Python
+score = 85
+if score >= 90:
+    print("A")
+elif score >= 80:
+    print("B")
+else:
+    print("C")
+
+day = "Mon"
+match day:
+    case "Mon": print("Start")
+    case "Fri": print("End")
+    case _:     print("Mid")
+```
+
+---
+
+## 4. Loops
+
+| Concept | Java | Node.js | Python |
+|---|---|---|---|
+| For | `for (int i=0; i<5; i++)` | `for (let i=0; i<5; i++)` | `for i in range(5):` |
+| For Each | `for (String s : list)` | `for (const s of arr)` | `for s in list:` |
+| While | `while (x > 0) {}` | `while (x > 0) {}` | `while x > 0:` |
+| Break/Continue | `break;` / `continue;` | `break;` / `continue;` | `break` / `continue` |
+
+### 🧪 Practice
+```java
+// Java
+// For
+for (int i = 0; i < 5; i++) System.out.println(i);
+
+// For Each
+List<String> langs = Arrays.asList("Java", "Node", "Python");
+for (String l : langs) System.out.println(l);
+
+// While
+int n = 1;
+while (n <= 5) { System.out.println(n); n++; }
+```
+```javascript
+// Node.js
+// For
+for (let i = 0; i < 5; i++) console.log(i);
+
+// For Each
+const langs = ["Java", "Node", "Python"];
+for (const l of langs) console.log(l);
+
+// While
+let n = 1;
+while (n <= 5) { console.log(n); n++; }
+```
+```python
+# Python
+# For
+for i in range(5): print(i)
+
+# For Each
+langs = ["Java", "Node", "Python"]
+for l in langs: print(l)
+
+# While
+n = 1
+while n <= 5:
+    print(n)
+    n += 1
+```
+
+---
+
+## 5. Functions
+
+| Concept | Java | Node.js | Python |
+|---|---|---|---|
+| Basic | `public static int add(int a, int b)` | `function add(a, b)` | `def add(a, b):` |
+| Arrow/Lambda | `(a, b) -> a + b` | `(a, b) => a + b` | `lambda a, b: a + b` |
+| Default Params | Use overloading | `add(a, b=10)` | `def add(a, b=10):` |
+| Varargs | `void f(int... args)` | `function f(...args)` | `def f(*args):` |
+| Return Multiple | Return array/object | Return array/object | `return a, b` |
+
+### 🧪 Practice
+```java
+// Java
+// Basic
+public static int add(int a, int b) { return a + b; }
+
+// Lambda
+Function<Integer, Integer> sq = x -> x * x;
+System.out.println(sq.apply(5)); // 25
+
+// Default (via overloading)
+static String greet(String name) { return greet(name, "Hello"); }
+static String greet(String name, String msg) { return msg + " " + name; }
+
+// Varargs
+static int sum(int... nums) {
+    int total = 0;
+    for (int n : nums) total += n;
+    return total;
+}
+System.out.println(sum(1, 2, 3, 4)); // 10
+```
+```javascript
+// Node.js
+// Basic
+function add(a, b) { return a + b; }
+
+// Arrow
+const sq = x => x * x;
+console.log(sq(5)); // 25
+
+// Default
+function greet(name, msg = "Hello") { return `${msg} ${name}`; }
+console.log(greet("Mani")); // Hello Mani
+
+// Rest/Varargs
+function sum(...nums) { return nums.reduce((a, b) => a + b, 0); }
+console.log(sum(1, 2, 3, 4)); // 10
+```
+```python
+# Python
+# Basic
+def add(a, b): return a + b
+
+# Lambda
+sq = lambda x: x ** 2
+print(sq(5))  # 25
+
+# Default
+def greet(name, msg="Hello"): return f"{msg} {name}"
+print(greet("Mani"))  # Hello Mani
+
+# Varargs
+def total(*nums): return sum(nums)
+print(total(1, 2, 3, 4))  # 10
+```
+
+---
+
+## 6. OOP
+
+| Concept | Java | Node.js | Python |
+|---|---|---|---|
+| Class | `public class Dog {}` | `class Dog {}` | `class Dog:` |
+| Constructor | `public Dog(String name)` | `constructor(name)` | `def __init__(self, name):` |
+| Inheritance | `class Lab extends Dog` | `class Lab extends Dog` | `class Lab(Dog):` |
+| Override | `@Override` | (implicit) | (implicit) |
+| Static | `static void hello()` | `static hello()` | `@staticmethod` |
+| this/self | `this` | `this` | `self` (explicit) |
+| Super | `super.method()` | `super.method()` | `super().method()` |
+| Access | `public/private/protected` | `_convention` | `_convention` |
+
+### 🧪 Practice
+```java
+// Java
+class Animal {
+    String name;
+    Animal(String name) { this.name = name; }
+    String speak() { return "..."; }
+}
+class Cat extends Animal {
+    Cat(String name) { super(name); }
+    @Override
+    String speak() { return name + " says Meow"; }
+}
+Cat c = new Cat("Luna");
+System.out.println(c.speak()); // Luna says Meow
+```
+```javascript
+// Node.js
+class Animal {
+    constructor(name) { this.name = name; }
+    speak() { return "..."; }
+}
+class Cat extends Animal {
+    speak() { return `${this.name} says Meow`; }
+}
+const c = new Cat("Luna");
+console.log(c.speak()); // Luna says Meow
+```
+```python
+# Python
+class Animal:
+    def __init__(self, name):
+        self.name = name
+    def speak(self):
+        return "..."
+
+class Cat(Animal):
+    def speak(self):
+        return f"{self.name} says Meow"
+
+c = Cat("Luna")
+print(c.speak())  # Luna says Meow
+```
+
+---
+
+## 7. Collections
+
+| Concept | Java | Node.js | Python |
+|---|---|---|---|
+| Create List | `new ArrayList<>()` | `[]` | `[]` |
+| Add | `list.add(x)` | `arr.push(x)` | `list.append(x)` |
+| Remove | `list.remove(x)` | `arr.splice(i,1)` | `list.remove(x)` |
+| Contains | `list.contains(x)` | `arr.includes(x)` | `x in list` |
+| Length | `list.size()` | `arr.length` | `len(list)` |
+| Sort | `Collections.sort(list)` | `arr.sort()` | `list.sort()` |
+| Slice | `list.subList(0,3)` | `arr.slice(0,3)` | `lst[0:3]` |
+| Map | `stream().map(fn)` | `arr.map(fn)` | `[f(x) for x in lst]` |
+| Filter | `stream().filter(fn)` | `arr.filter(fn)` | `[x for x in lst if f(x)]` |
+| Reduce | `stream().reduce(0, fn)` | `arr.reduce(fn, init)` | `functools.reduce(fn, lst)` |
+
+### 🧪 Practice
+```java
+// Java
+List<Integer> nums = new ArrayList<>(Arrays.asList(3, 1, 4, 1, 5));
+nums.add(9);
+Collections.sort(nums); // [1, 1, 3, 4, 5, 9]
+
+// Map → square each
+List<Integer> squared = nums.stream()
+    .map(x -> x * x)
+    .collect(Collectors.toList());
+
+// Filter → evens only
+List<Integer> evens = nums.stream()
+    .filter(x -> x % 2 == 0)
+    .collect(Collectors.toList());
+
+// Reduce → sum
+int total = nums.stream().reduce(0, Integer::sum);
+
+// Map (HashMap)
+Map<String, Integer> scores = new HashMap<>();
+scores.put("Alice", 95);
+scores.put("Bob", 87);
+System.out.println(scores.get("Alice")); // 95
+```
+```javascript
+// Node.js
+let nums = [3, 1, 4, 1, 5];
+nums.push(9);
+nums.sort((a, b) => a - b); // [1, 1, 3, 4, 5, 9]
+
+const squared = nums.map(x => x * x);
+const evens   = nums.filter(x => x % 2 === 0);
+const total   = nums.reduce((acc, x) => acc + x, 0);
+
+const scores = { Alice: 95, Bob: 87 };
+console.log(scores["Alice"]); // 95
+```
+```python
+# Python
+nums = [3, 1, 4, 1, 5]
+nums.append(9)
+nums.sort()  # [1, 1, 3, 4, 5, 9]
+
+squared = [x * x for x in nums]
+evens   = [x for x in nums if x % 2 == 0]
+
+from functools import reduce
+total = reduce(lambda a, x: a + x, nums)
+
+scores = {"Alice": 95, "Bob": 87}
+print(scores["Alice"])  # 95
+```
+
+---
+
+## 8. Error Handling
+
+| Concept | Java | Node.js | Python |
+|---|---|---|---|
+| Try/Catch | `try {} catch(Exception e) {}` | `try {} catch(e) {}` | `try: except Exception as e:` |
+| Finally | `finally {}` | `finally {}` | `finally:` |
+| Throw | `throw new Exception("msg")` | `throw new Error("msg")` | `raise ValueError("msg")` |
+| Custom Error | `class E extends Exception` | `class E extends Error` | `class E(Exception):` |
+| Checked | Yes (must declare/catch) | No | No |
+
+### 🧪 Practice
+```java
+// Java
+try {
+    int x = 10 / 0;
+} catch (ArithmeticException e) {
+    System.out.println("Error: " + e.getMessage());
+} finally {
+    System.out.println("done");
+}
+
+// Custom exception
+class AppError extends RuntimeException {
+    public AppError(String msg) { super(msg); }
+}
+throw new AppError("Bad input");
+```
+```javascript
+// Node.js
+try {
+    let x = JSON.parse("{bad}");
+} catch (e) {
+    console.log("Error: " + e.message);
+} finally {
+    console.log("done");
+}
+
+// Custom exception
+class AppError extends Error {
+    constructor(msg) { super(msg); this.name = "AppError"; }
+}
+throw new AppError("Bad input");
+```
+```python
+# Python
+try:
+    x = int("abc")
+except ValueError as e:
+    print(f"Error: {e}")
+finally:
+    print("done")
+
+# Custom exception
+class AppError(Exception): pass
+raise AppError("Bad input")
+```
+
+---
+
+## 9. Async / Concurrency
+
+| Concept | Java | Node.js | Python |
+|---|---|---|---|
+| Async Model | `CompletableFuture` | Event loop (single-threaded) | `asyncio` |
+| Async/Await | Via `CompletableFuture` | `async/await` (native) | `async/await` (native) |
+| Parallel | `ExecutorService` | `Promise.all([...])` | `asyncio.gather(*tasks)` |
+| Threads | `Thread` / `ExecutorService` | `Worker Threads` | `threading.Thread` |
+| GIL | No GIL | No GIL | Has GIL (CPython) |
+
+### 🧪 Practice
+```java
+// Java
+CompletableFuture.supplyAsync(() -> "data")
+    .thenAccept(d -> System.out.println("Got: " + d));
+
+// Parallel
+ExecutorService pool = Executors.newFixedThreadPool(2);
+pool.submit(() -> System.out.println("Task 1"));
+pool.submit(() -> System.out.println("Task 2"));
+pool.shutdown();
+```
+```javascript
+// Node.js
+async function fetchData() {
+    const res  = await fetch("https://api.example.com/data");
+    const data = await res.json();
+    return data;
+}
+
+// Parallel
+const [a, b] = await Promise.all([fetchA(), fetchB()]);
+```
+```python
+# Python
+import asyncio
+
+async def fetch():
+    await asyncio.sleep(1)
+    return "data"
+
+# Parallel
+async def main():
+    a, b = await asyncio.gather(taskA(), taskB())
+
+asyncio.run(main())
+```
+
+---
+
+## 10. File I/O & JSON
+
+| Concept | Java | Node.js | Python |
+|---|---|---|---|
+| Write File | `Files.writeString(path, str)` | `fs.writeFileSync("f.txt", s)` | `open("f.txt","w").write(s)` |
+| Read File | `Files.readString(path)` | `fs.readFileSync("f.txt","utf8")` | `open("f.txt").read()` |
+| JSON Parse | `objectMapper.readValue(json, T)` | `JSON.parse(str)` | `json.loads(str)` |
+| JSON Stringify | `objectMapper.writeValueAsString(obj)` | `JSON.stringify(obj)` | `json.dumps(obj)` |
+
+### 🧪 Practice
+```java
+// Java
+import java.nio.file.*;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+// Write / Read
+Files.writeString(Path.of("f.txt"), "hello");
+String txt = Files.readString(Path.of("f.txt"));
+
+// JSON
+ObjectMapper m = new ObjectMapper();
+String json = m.writeValueAsString(Map.of("name", "Mani", "age", 30));
+Map obj = m.readValue(json, Map.class);
+```
+```javascript
+// Node.js
+const fs = require("fs");
+
+fs.writeFileSync("f.txt", "hello");
+const txt = fs.readFileSync("f.txt", "utf8");
+
+const json = JSON.stringify({ name: "Mani", age: 30 });
+const obj  = JSON.parse(json);
+console.log(obj.name); // Mani
+```
+```python
+# Python
+import json
+
+with open("f.txt", "w") as f: f.write("hello")
+with open("f.txt") as f: txt = f.read()
+
+json_str = json.dumps({"name": "Mani", "age": 30})
+obj = json.loads(json_str)
+print(obj["name"])  # Mani
+```
+
+---
+
+## 11. Modules & Packages
+
+| Concept | Java | Node.js | Python |
+|---|---|---|---|
+| Import | `import java.util.List;` | `import x from 'module'` | `from module import x` |
+| Package Manager | Maven / Gradle | npm / yarn / pnpm | pip / poetry / conda |
+| Config File | `pom.xml` / `build.gradle` | `package.json` | `requirements.txt` / `pyproject.toml` |
+| Publish | Maven Central | `npm publish` | `PyPI` |
+
+### 🧪 Practice
+```java
+// Java — public/private controls visibility, no "export"
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Collections;
+```
+```javascript
+// Node.js
+// math.js
+export const add = (a, b) => a + b;
+export default class App {}
+
+// main.js
+import { add } from "./math.js";
+import App   from "./App.js";
+```
+```python
+# Python
+# math_utils.py
+def add(a, b): return a + b
+
+# main.py
+from math_utils import add
+import math_utils as mu
+```
+
+---
+
+## 12. Testing
+
+| Concept | Java | Node.js | Python |
+|---|---|---|---|
+| Framework | JUnit 5 | Jest / Mocha | pytest / unittest |
+| Assert | `assertEquals(a, b)` | `expect(a).toBe(b)` | `assert a == b` |
+| Mock | Mockito | `jest.mock()` / sinon | `unittest.mock` |
+| Coverage | JaCoCo | `jest --coverage` | `pytest-cov` |
+| Run | `mvn test` | `jest` | `pytest` |
+
+### 🧪 Practice
+```java
+// Java — JUnit 5
+@Test
+void testAdd() {
+    assertEquals(5, add(2, 3));
+    assertNotNull(result);
+    assertThrows(AppError.class, () -> riskyMethod());
+}
+```
+```javascript
+// Node.js — Jest
+test("adds 2 + 3 to equal 5", () => {
+    expect(add(2, 3)).toBe(5);
+    expect(result).not.toBeNull();
+    expect(() => riskyMethod()).toThrow("Bad input");
+});
+```
+```python
+# Python — pytest
+def test_add():
+    assert add(2, 3) == 5
+    assert result is not None
+
+import pytest
+def test_raises():
+    with pytest.raises(AppError):
+        risky_method()
+```
+
+---
+
+## 13. Quick Mental Model
+
+| | Java | Node.js | Python |
+|---|---|---|---|
+| **Best For** | Enterprise backends, Android, high-perf systems | APIs, real-time, microservices, CLI | ML/AI, data science, scripting, automation |
+| **Strength** | Type safety, JVM, Spring Boot, multithreading | Non-blocking I/O, npm ecosystem, async-first | Readability, libraries (NumPy, Pandas, TF) |
+| **Watch Out** | Verbosity, boilerplate, slow startup | Callback hell, weak typing, single-threaded | GIL limits threads, slower raw speed |
+| **Runs On** | JVM (platform independent) | V8 engine (Chrome/Node) | CPython interpreter |
+| **Typing** | Static, strong | Dynamic, weak | Dynamic, strong |
+
+---
+
+## 🎯 Daily Practice Plan
+
+| Day | Focus |
+|---|---|
+| Day 1 | Variables, Types, Strings |
+| Day 2 | Control Flow, Loops |
+| Day 3 | Functions, Lambdas |
+| Day 4 | OOP — Class, Inheritance |
+| Day 5 | Collections — List, Map, Stream |
+| Day 6 | Error Handling, Custom Exceptions |
+| Day 7 | Async/Await, Parallel Tasks |
+| Day 8 | File I/O, JSON |
+| Day 9 | Modules, Testing |
+| Day 10 | Build one small project in all 3 |
+
+> **Rule:** Always type the snippet. Never copy-paste. Then modify it. Then delete it and rewrite from memory.
